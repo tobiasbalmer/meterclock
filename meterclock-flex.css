@@ -1,0 +1,57 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.meterclock {
+    display: flex;
+    justify-content: center;
+}
+
+.meterclock_timesegment {
+    display: flex;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.meterclock__seperator {
+    color: green;
+    font-size: 20px;
+}
+
+.meterclock__column {
+    position: relative;
+    width: 50px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.meterclock__numbers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transition-duration: 0.3s;
+}
+
+.meterclock__number {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 10px;
+    background-color: green;
+    color: #fff;
+}

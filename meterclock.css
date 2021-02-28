@@ -1,0 +1,154 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.meterclock {
+    position: absolute;
+    top: 50%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 0.4fr repeat(2, 1fr) 0.4fr repeat(2, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    transform: translateY(calc(-100% / 9));
+    font-size: 26px;
+    --border-radius: 40px;
+}
+
+.meterclock__current-indicator {
+    grid-row: 1 / span 1;
+    border: 5px solid #ccc;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 3px rgb(94, 94, 94);
+    transform: scale(0.85);
+    z-index: 1;
+}
+
+.meterclock__current-indicator--hour-ten {
+    grid-column: 1 / span 1;
+}
+
+.meterclock__current-indicator--hour-one {
+    grid-column: 2 / span 1;
+}
+
+.meterclock__current-indicator--minute-ten {
+    grid-column: 4 / span 1;
+}
+
+.meterclock__current-indicator--minute-one {
+    grid-column: 5 / span 1;
+}
+
+.meterclock__current-indicator--second-ten {
+    grid-column: 7 / span 1;
+}
+
+.meterclock__current-indicator--second-one {
+    grid-column: 8 / span 1;
+}
+
+.meterclock__seperator {
+    padding: 24px 0;
+    text-align: center;
+    font-weight: 700;
+}
+
+.meterclock__seperator--hours-minutes {
+    grid-column: 3 / span 1;
+    grid-row: 1 / 1;
+}
+
+.meterclock__seperator--minutes-seconds {
+    grid-column: 6 / span 1;
+    grid-row: 1 / 1;
+}
+
+.meterclock__numbers {
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
+    transition-duration: 0.3s;
+    padding: 0 1px;
+    /*box-shadow: 0 0 3px #000;*/
+    /*border-radius: 30px;*/
+}
+
+.meterclock__numbers--hour-ten {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 3;
+}
+
+.meterclock__numbers--hour-one {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 10;
+}
+
+.meterclock__numbers--minute-ten {
+    grid-column: 4 / span 1;
+    grid-row: 1 / span 6;
+}
+
+.meterclock__numbers--minute-one {
+    grid-column: 5 / span 1;
+    grid-row: 1 / span 10;
+}
+
+.meterclock__numbers--second-ten {
+    grid-column: 7 / span 1;
+    grid-row: 1 / span 6;
+}
+
+.meterclock__numbers--second-one {
+    grid-column: 8 / span 1;
+    grid-row: 1 / span 10;
+}
+
+.meterclock__numbers--second-ten .meterclock__number,
+.meterclock__numbers--second-one .meterclock__number {
+    background-color: rgb(75, 75, 75);
+}
+
+.meterclock__number {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 30px;
+    background-color: #333;
+    box-shadow: 0 2px 3px #555;
+}
+
+.meterclock__number:not(:last-child) {
+    margin-bottom: -1px;
+}
+
+.meterclock__number:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.meterclock__number:last-child {
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+.meterclock__cipher {
+    flex: 1;
+    color: #fff;
+}
